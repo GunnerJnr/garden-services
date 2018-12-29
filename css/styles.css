@@ -1,0 +1,147 @@
+/* general styles */
+html,
+body {
+	height: 100%;
+	width: 100%;
+}
+
+/* padded section */
+.pad-section {
+	padding: 50px 0;
+}
+
+.pad-section img {
+	width: 100%;
+}
+
+/* vertical-centered text */
+.text-vcenter {
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+}
+
+.text-vcenter h1, h3 {
+	-webkit-text-stroke-width: 0.5px;
+   -webkit-text-stroke-color: #000000;
+	color: #66ff00;
+}
+
+.text-vcenter h1 {
+	font-size: 4.5em;
+	font-weight: 700;
+	margin: 0;
+	padding: 0;
+}
+
+/* additional sections */
+#home {
+	background: url(../images/swing-chair.jpg) no-repeat center center fixed;
+	opacity: 0.85;
+    filter: alpha(opacity=85); /* For IE8 and earlier */
+	display: table;
+	height: 100%;
+	position: relative;
+	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#services {
+	background-color: #306d9f;
+	color: #ffffff;
+}
+
+.card-body .lead {
+	opacity: 0.85;
+	filter: alpha(opacity=85); /* For IE8 and earlier */
+}
+
+.card-body li {
+	list-style: none;
+}
+
+#services .glyphicon {
+	border: 2px solid #FFFFFF;
+	border-radius: 50%;
+	display: inline-block;
+	font-size: 60px;
+	height: 140px;
+	line-height: 140px;
+	text-align: center;
+	vertical-align: middle;
+	width: 140px;
+}
+
+#phone-number {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+#information {
+	background: url(../images/patio.jpg) no-repeat center center fixed;
+	display: table;
+	height: 800px;
+	position: relative;
+	width: 100%;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#information .panel {
+	opacity: 0.85;
+}
+
+#google_map {
+	height: 500px;
+}
+
+/************************* Image Grow Styling *************************/
+
+.grow {
+	transition: all 0.2s ease-in-out;
+}
+
+.grow:hover {
+	transform: scale(1.5);
+	text-decoration: none;
+}
+
+/************************* Social Icons Styling *************************/
+
+#fa-social {
+	padding: 10px;
+	font-size: 20px;
+	color: white;
+	width: auto;
+	text-align: center;
+	border-radius: 10%;
+}
+
+.fa:hover {
+	opacity: 0.7;
+	text-decoration: none;
+	color: #c2c0c0;
+}
+
+.fa-facebook {
+	background: #3b5998;
+	color: white;
+}
+
+footer {
+	padding: 20px 0;
+}
+
+footer .glyphicon {
+	color: #333333;
+	font-size: 60px;
+}
+
+footer .glyphicon:hover {
+	color: #306d9f;
+}
