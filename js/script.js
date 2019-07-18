@@ -10,44 +10,45 @@ $(document).ready(function() {
 	});
 });
 
-function initMap() {
-	// Create a Latitude, Longitude object, this object will contain the co-ordinates for the center of the map.
-	// Currently set to Luton in Surrey, UK.
-	var latlng = new google.maps.LatLng(51.386776, -0.408538);
+function InitialiseMap() {
+	// leaflet map properties
+	var myMap = L.map("mapid").setView([51.4034111, -0.460476], 15);
 
-	// Define the properties for the map.
-	var mapOptions = {
-		zoom: 15,
-		center: latlng,
-		mapTypeId: google.maps.MapTypeId.ROADMAP,
-		navigationControl: true,
-		mapTypeControl: false,
-		scrollwheel: true,
-		disableDoubleClickZoom: false
-	};
+	// use mapbox to display map imagery
+	L.tileLayer(
+		"https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}",
+		{
+			attribution:
+				'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+			maxZoom: 18,
+			id: "mapbox.streets",
+			accessToken:
+				"pk.eyJ1IjoiZ3VubmVyam5yIiwiYSI6ImNqeTA1ZXNyejA5ZmUzY2w0anFzamU0NGkifQ.U62vXv3Ae82zq1GaBWq6jg"
+		}
+	).addTo(myMap);
 
-	// Initialise the map object.
-	var map = new google.maps.Map(
-		document.getElementById("google_map"),
-		mapOptions
+	var greenIcon = L.icon({
+		iconUrl: "../images/logo-pin-icon.png",
+		shadowUrl: "../images/logo-pin-shadow-icon.png",
+
+		iconSize: [64, 64], // size of the icon
+		shadowSize: [64, 64], // size of the shadow
+		iconAnchor: [22, 94], // point of the icon which will correspond to marker's location
+		shadowAnchor: [4, 62], // the same for the shadow
+		popupAnchor: [-3, -76] // point from which the popup should open relative to the iconAnchor
+	});
+
+	// create a pin marker to show where we are located
+	var marker = L.marker([51.4034111, -0.460476], { icon: greenIcon }).addTo(
+		myMap
 	);
 
-	// This adds our marker to the map of where we wish to display our location.
-	var locationMarker = new google.maps.Marker({
-		position: latlng,
-		map: map
-	});
-
-	// Here add a listener to see if a user clicks on the pin,
-	// If they do then we want to display the below information window to them.
-	google.maps.event.addListener(locationMarker, "click", function() {
-		infowindow.open(map, locationMarker);
-	});
-
-	// Finally, we add the information window to display, when the user
-	// clicks the location marker pin.
-	var infowindow = new google.maps.InfoWindow({
-		content:
-			'<div class="info"><strong>Gardening Services</strong><br><br>We are located here in <br> Surrey, London</div>'
-	});
+	// the info to be displayed if the user clicks the pin
+	marker
+		.bindPopup(
+			'<div class="info"><strong>Garden Services</strong><br><br>We are located here in <br> Shepperton, Middlesex</div>'
+		)
+		.openPopup();
 }
+
+InitialiseMap();
