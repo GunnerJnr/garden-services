@@ -3,16 +3,17 @@
 
 <head>
 	<meta charset="utf-8" />
-	<meta name="Richard Lloyd" content="Gardening Services">
+	<meta name="Richard Lloyd" content="Garden Services">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-	<title>Gardening Services - Home</title>
+	<title>Garden Services - Home</title>
 
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
 	<!-- Link Stylesheets -->
 	<link rel="stylesheet" href="third-party/vendor/bootstrap-4/css/bootstrap.min.css" />
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css" integrity="sha512-xwE/Az9zrjBIphAcBb3F6JVqxf46+CDLwfLMHloNu6KEQCAWi6HcDUbeOfBIptF7tcCzusKFjFw2yuvEpDL9wQ==" crossorigin="" />
 	<link rel="stylesheet" href="css/styles.css" />
 </head>
 
@@ -20,9 +21,8 @@
 	<!-- Navbar Begin -->
 	<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
 		<a class="navbar-brand" data-value="home" href="#home">
-			<img src="https://getbootstrap.com/docs/4.1/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top"
+			<img src="images/logo-nav-icon.png" class="d-inline-block align-top"
 			 alt="">
-			Gardening Services
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarGS" aria-controls="navbarGS"
 		 aria-expanded="false" aria-label="Toggle navigation">
@@ -31,10 +31,10 @@
 		<div class="collapse navbar-collapse" id="navbarGS">
 			<div class="navbar-nav">
 				<a class="nav-item nav-link active" data-value="home" href="#home">Home <span class="sr-only">(current)</span></a>
-				<a class="nav-item nav-link" data-value="about" href="#about">About</a>
+				<a class="nav-item nav-link" data-value="contact" href="#contact">Contact</a>
 				<a class="nav-item nav-link" data-value="services" href="#services">Services</a>
 				<a class="nav-item nav-link" data-value="information" href="#information">Info</a>
-				<a class="nav-item nav-link" data-value="google_map" href="#google_map">Find Us</a>
+				<a class="nav-item nav-link" data-value="mapid" href="#mapid">Find Us</a>
 			</div>
 		</div>
 	</nav>
@@ -43,26 +43,26 @@
 	<!-- Home Section Begin -->
 	<div id="home" class="home">
 		<div class="text-vcenter">
-			<h1>Garden Services</h1>
-			<h3>Take a look at some of the services we offer below!</h3>
-			<a data-value="about" href="#about" class="btn btn-primary btn-lg">Continue</a>
+			<img src="images/logo.png" alt="">
+			<h3>Take a look at some of the services we offer below!</h3><br>
+			<a data-value="contact" href="#contact" class="btn btn-primary btn-lg">BROWSE</a>
 		</div>
 	</div>
 	<!-- Home Section End -->
 
 	<!-- About Section Begin -->
-	<div id="about" class="pad-section">
+	<div id="contact" class="pad-section">
 		<div class="container">
 			<div class="row">
-				<div class="col-sm-6">
-					<img src="images/logo.png" alt="">
-				</div>
-				<div class="col-sm-6 mt-5 text-center">
-					<h2>Welcome to Garden Services Surrey.</h2>
+				<div class="col-sm-12 text-center">
+					<h1>CONTACT US</h1>
+					<hr />
 					<address class="lead">
-						Email: <a href="mailto:Riche.email@tiscali.co.uk">Riche.email@tiscali.co.uk</a>
+						Email: <a href="mailto:Riche.email@tiscali.co.uk">riche.email@tiscali.co.uk</a>
 						<br>
-						Business Hours: TBA
+						Business Hours: Mon - Fri 07:30am - 1800pm
+						<br>
+						Weekends by appointment only.
 					</address>
 				</div>
 			</div>
@@ -73,13 +73,13 @@
 	<!-- Services Section Begin -->
 	<div id="services" class="pad-section">
 		<div class="container">
-			<h2 class="text-center">Our Services</h2>
+			<h2 class="text-center">OUR SERVICES</h2>
 			<hr />
 			<div class="row text-center">
 
 				<div class="col-sm-4 col-xs-6">
 					<i class="fa fa-leaf"></i>
-					<h4>Garden Need Some TLC?</h4>
+					<h4>Garden Need TLC?</h4>
 					<h5>We offer a wide range of services, see below for more info</h5>
 				</div>
 
@@ -92,7 +92,7 @@
 				<div class="col-sm-4 col-xs-6">
 					<i class="fa fa-phone"></i>
 					<h4>Need To Get In Touch</h4>
-					<h5>Why not give us a call on <a id="phone-number" href="tel:07960234629">07960234629</a></h5>
+					<h5>Pick up the phone and give us a call on<br> <a id="phone-number" href="tel:07960234629">07960234629</a></h5>
 				</div>
 
 			</div>
@@ -104,129 +104,86 @@
 	<div id="information" class="pad-section">
 		<div class="container">
 			<div class="row">
+				<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+					<ol class="carousel-indicators">
+						<li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="3" class="active"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+						<li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
+					</ol>
+					<div class="carousel-inner">
+						<div class="carousel-item active">
+							<div class="card">
+								<img class="d-block w-100" src="images/floor-strip-stain-and-polish/DSC_0013_1.JPG" alt="Card image cap">
+								<div class="carousel-caption d-none d-md-block">
+									<h5>Strip Floors, Stain and Polish</h5>
+									<p>Strip back, stain and polish of some original floors.</p>
+								</div>
+							</div>
+						</div>
 
-				<div class="card col-sm-12 mb-3">
-					<img class="card-img-top" src="images/ground-work-2.jpg" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This
-							content is a little bit longer.</p>
-						<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+						<div class="carousel-item">
+							<div class="card">
+								<img class="d-block w-100" src="images/floor-and-joist-repair/DSC_0163.JPG" alt="Card image cap">
+								<div class="carousel-caption d-none d-md-block">
+									<h5>Floor and Joist Repair</h5>
+									<p>Repair and replacement of rotten floorboards and joists.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="carousel-item">
+							<div class="card">
+								<img class="d-block w-100" src="images/general-gardening/DSC_0707.JPG" alt="Card image cap">
+								<div class="carousel-caption d-none d-md-block">
+									<h5>General Gardening</h5>
+									<p>From general garden maintenance to a complete transformation, patios, fencing.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="carousel-item">
+							<div class="card">
+								<img class="d-block w-100" src="images/garage-refurbishment/DSC_0097.JPG" alt="Card image cap">
+								<div class="carousel-caption d-none d-md-block">
+									<h5>Garage Refurbishment</h5>
+									<p>Total garage transformation from a shell to storage and gym area.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="carousel-item">
+							<div class="card">
+								<img class="d-block w-100" src="images/fence-repair/DSC_0085_2.JPG" alt="Card image cap">
+								<div class="carousel-caption d-none d-md-block">
+									<h5>Fence Repair</h5>
+									<p>Repair and replacement of rotten, old or broken fence panels.</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="carousel-item">
+							<div class="card">
+								<img class="d-block w-100" src="images/shower-repair/DSC_0034.JPG" alt="Card image cap">
+								<div class="carousel-caption d-none d-md-block">
+									<h5>Shower Repairs</h5>
+									<p>A leaking pipe had rotted the wooden frame, repaired and replaced.</p>
+								</div>
+							</div>
+						</div>
+
 					</div>
+					<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
 				</div>
-
-				<div class="card mb-3">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This
-							content is a little bit longer.</p>
-						<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-					</div>
-					<img class="card-img-bottom" src="images/patio-clean.jpg" alt="Card image cap">
-				</div>
-
-				<div class="card col-sm-6 mb-3">
-					<img class="card-img-top" src="images/ground-work.jpg" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This
-							content is a little bit longer.</p>
-						<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-					</div>
-				</div>
-
-				<div class="card col-sm-6 mb-3">
-					<img class="card-img-top" src="images/ground-work-2.jpg" alt="Card image cap">
-					<div class="card-body">
-						<h5 class="card-title">Card title</h5>
-						<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This
-							content is a little bit longer.</p>
-						<p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-					</div>
-				</div>
-
-				<!-- Card Group 1 Begin -->
-				<div class="card-group">
-
-					<div class="card">
-						<img class="card-img-top" src="images/ground-work.jpg" alt="ground-work">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-								This content is a little bit longer.</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Last updated 3 mins ago</small>
-						</div>
-					</div>
-
-					<div class="card">
-						<img class="card-img-top" src="images/ground-work-2.jpg" alt="ground-work-2">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Last updated 3 mins ago</small>
-						</div>
-					</div>
-
-					<div class="card">
-						<img class="card-img-top" src="images/ground-work-3.jpg" alt="ground-work-3">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-								This card has even longer content than the first to show that equal height action.</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Last updated 3 mins ago</small>
-						</div>
-					</div>
-
-				</div>
-				<!-- Card Group 1 End -->
-
-				<!-- Card Group 2 Begin -->
-				<div class="card-group">
-				
-					<div class="card">
-						<img class="card-img-top" src="images/ground-work-4.jpg" alt="ground-work-4">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-								This content is a little bit longer.</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Last updated 3 mins ago</small>
-						</div>
-					</div>
-				
-					<div class="card">
-						<img class="card-img-top" src="images/patio-clean.jpg" alt="patio-clean">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Last updated 3 mins ago</small>
-						</div>
-					</div>
-				
-					<div class="card">
-						<img class="card-img-top" src="images/plants.jpg" alt="plants">
-						<div class="card-body">
-							<h5 class="card-title">Card title</h5>
-							<p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content.
-								This card has even longer content than the first to show that equal height action.</p>
-						</div>
-						<div class="card-footer">
-							<small class="text-muted">Last updated 3 mins ago</small>
-						</div>
-					</div>
-				
-				</div>
-				<!-- Card Group 2 End -->
-
 			</div>
 		</div>
 	</div>
@@ -237,16 +194,17 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12 text-center">
-					<h3>Find Us On Google Maps</h3>
-					<h4>We are located in Surrey, London.</h4>
+					<h1>FIND US ON THE MAP</h1>
+					<hr />
+					<h4>We are located in Shepperton, Middlesex.</h4>
 				</div>
 			</div>
 		</div>
 	</div>
 
-	<!-- Google Map -->
-	<div id="google_map"></div>
-	<!-- Google Map -->
+	<!-- Leaflet Map Begin -->
+	<div id="mapid"></div>
+	<!-- Leaflet Map End -->
 
 	<div id="services" class="pad-section">
 		<div class="container">
@@ -269,7 +227,7 @@
 			<div class="container">
 				<hr />
 				<p class="text-right">
-					Copyright &copy; Garden Services 2018
+					Copyright &copy; Garden Services 2019
 				</p>
 			</div>
 		</footer>
@@ -278,7 +236,9 @@
 		<!-- Link Javascript Scripts -->
 		<script src="third-party/vendor/JQuery/jquery-3.3.1.min.js"></script>
 		<script src="third-party/vendor/bootstrap-4/js/bootstrap.min.js"></script>
-		<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB5MF7hzeCCAmJ6RvEv63CxVShFpjbCVWI&callback=initMap"></script>
+
+		<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js" integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og==" crossorigin=""></script>
+
 		<script src="js/script.js"></script>
 </body>
 

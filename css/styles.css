@@ -1,8 +1,24 @@
 /* general styles */
+body,
 html,
-body {
+#mapid {
+	max-width: 100%;
 	height: 100%;
-	width: 100%;
+	text-transform: uppercase;
+}
+
+.body {
+	padding: 0;
+	margin: 0;
+}
+
+.navbar-brand img {
+	max-width: 150px;
+	height: auto;
+}
+
+.navbar-nav a {
+	padding-top: 22px;
 }
 
 /* padded section */
@@ -11,7 +27,7 @@ body {
 }
 
 .pad-section img {
-	width: 100%;
+	max-width: 100%;
 }
 
 /* vertical-centered text */
@@ -21,10 +37,14 @@ body {
 	vertical-align: middle;
 }
 
-.text-vcenter h1, h3 {
-	-webkit-text-stroke-width: 0.5px;
-   -webkit-text-stroke-color: #000000;
-	color: #66ff00;
+.text-vcenter h1,
+h3,
+h5,
+.card p {
+	color: #ffffff;
+	text-shadow: 1px 1px 1px #333333, 3px 3px 5px #b8c256;
+	-webkit-text-stroke-width: 0.25px;
+	-webkit-text-stroke-color: #636161;
 }
 
 .text-vcenter h1 {
@@ -34,13 +54,18 @@ body {
 	padding: 0;
 }
 
+.text-vcenter img {
+	max-width: 75%;
+	height: auto;
+}
+
 /* additional sections */
 #home {
 	background: url(../images/swing-chair.jpg) no-repeat center center fixed;
 	opacity: 0.85;
-    filter: alpha(opacity=85); /* For IE8 and earlier */
+	filter: alpha(opacity=85); /* For IE8 and earlier */
 	display: table;
-	height: 100%;
+	height: 100vh;
 	position: relative;
 	width: 100%;
 	-webkit-background-size: cover;
@@ -64,7 +89,7 @@ body {
 }
 
 #services .glyphicon {
-	border: 2px solid #FFFFFF;
+	border: 2px solid #ffffff;
 	border-radius: 50%;
 	display: inline-block;
 	font-size: 60px;
@@ -83,7 +108,7 @@ body {
 #information {
 	background: url(../images/patio.jpg) no-repeat center center fixed;
 	display: table;
-	height: 800px;
+	height: auto;
 	position: relative;
 	width: 100%;
 	-webkit-background-size: cover;
@@ -96,7 +121,10 @@ body {
 	opacity: 0.85;
 }
 
-#google_map {
+/************************* map styling *************************/
+
+#mapid {
+	width: 100%;
 	height: 500px;
 }
 
@@ -144,4 +172,29 @@ footer .glyphicon {
 
 footer .glyphicon:hover {
 	color: #306d9f;
+}
+
+/* Turn off parallax scrolling for all tablets and phones. Increase/decrease the pixels if needed */
+@media only screen and (max-device-width: 1366px) {
+	.html img, .body img {
+		max-width: 100%;
+		height: auto;
+	}
+
+	.navbar-nav .a {
+		margin-left: 5px;
+	}
+
+	.navbar-brand img {
+		max-width: 150px;
+		height: auto;
+	}
+
+	.navbar-nav a {
+		padding-top: 22px;
+	}
+
+	#home {
+		background-attachment: scroll;
+	}
 }
